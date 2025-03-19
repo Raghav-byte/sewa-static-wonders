@@ -1,10 +1,6 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
-
-// Let's add framer-motion for some enhanced animations
-<lov-add-dependency>framer-motion@latest</lov-add-dependency>
 
 const steps = [
   {
@@ -41,7 +37,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-20 md:py-32 bg-gradient-to-b from-white to-sky-50">
+    <section id="how-it-works" className="py-20 md:py-32 bg-gradient-to-b from-white to-green-50">
       <div className="container mx-auto px-6 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16 md:mb-24">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold rounded-full bg-primary/10 text-primary animate-fade-in">
