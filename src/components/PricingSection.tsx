@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { CheckCircle2 } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
 
 interface PricingTier {
   name: string;
@@ -20,7 +19,8 @@ interface PricingTier {
 const pricingPlans: PricingTier[] = [
   {
     name: "Starter",
-    description: "Perfect for small businesses just getting started with WhatsApp.",
+    description:
+      "Perfect for small businesses just getting started with WhatsApp.",
     price: {
       monthly: "$29",
       yearly: "$24",
@@ -32,9 +32,9 @@ const pricingPlans: PricingTier[] = [
       "Basic chatbot automation",
       "Email support",
       "Message templates (5)",
-      "Basic analytics"
+      "Basic analytics",
     ],
-    cta: "Start Free Trial"
+    cta: "Start Free Trial",
   },
   {
     name: "Growth",
@@ -52,10 +52,10 @@ const pricingPlans: PricingTier[] = [
       "Message templates (15)",
       "Advanced analytics",
       "CRM integration",
-      "Appointment scheduling"
+      "Appointment scheduling",
     ],
     cta: "Start Free Trial",
-    popular: true
+    popular: true,
   },
   {
     name: "Enterprise",
@@ -74,17 +74,22 @@ const pricingPlans: PricingTier[] = [
       "Custom integrations",
       "SLA guarantees",
       "24/7 priority support",
-      "Advanced AI capabilities"
+      "Advanced AI capabilities",
     ],
-    cta: "Contact Sales"
-  }
+    cta: "Contact Sales",
+  },
 ];
 
 const PricingSection = () => {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
+    "monthly",
+  );
 
   return (
-    <section id="how-it-works" className="py-20 md:py-32 bg-gradient-to-b from-white to-green-50 dark:from-gray-800 dark:to-gray-900">
+    <section
+      id="how-it-works"
+      className="py-20 md:py-32 bg-gradient-to-b from-white to-green-50 dark:from-gray-800 dark:to-gray-900"
+    >
       <div className="container mx-auto px-6 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold rounded-full bg-primary/10 text-primary animate-fade-in">
@@ -93,40 +98,51 @@ const PricingSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">
             WhatsApp solutions for every business
           </h2>
-          <p className="text-lg text-muted-foreground mb-10 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Choose the plan that best fits your messaging needs. All plans come with a 14-day free trial.
+          <p
+            className="text-lg text-muted-foreground mb-10 animate-slide-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Choose the plan that best fits your messaging needs. All plans come
+            with a 14-day free trial.
           </p>
-          
-          <div className="inline-flex items-center p-1 bg-secondary rounded-full mb-12 animate-slide-up dark:bg-gray-700" style={{ animationDelay: '0.2s' }}>
-  <button
-    className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
-      ${billingCycle === 'monthly' 
-        ? 'bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white' 
-        : 'text-muted-foreground'}`}
-    onClick={() => setBillingCycle('monthly')}
-  >
-    Monthly
-  </button>
-  <button
-    className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
-      ${billingCycle === 'yearly' 
-        ? 'bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white' 
-        : 'text-muted-foreground'}`}
-    onClick={() => setBillingCycle('yearly')}
-  >
-    Yearly <span className="text-xs font-normal text-primary">Save 15%</span>
-  </button>
-</div>
 
+          <div
+            className="inline-flex items-center p-1 bg-secondary rounded-full mb-12 animate-slide-up dark:bg-gray-700"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <button
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
+      ${
+        billingCycle === "monthly"
+          ? "bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white"
+          : "text-muted-foreground"
+      }`}
+              onClick={() => setBillingCycle("monthly")}
+            >
+              Monthly
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
+      ${
+        billingCycle === "yearly"
+          ? "bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white"
+          : "text-muted-foreground"
+      }`}
+              onClick={() => setBillingCycle("yearly")}
+            >
+              Yearly{" "}
+              <span className="text-xs font-normal text-primary">Save 15%</span>
+            </button>
+          </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pricingPlans.map((plan, index) => (
-            <Card 
+            <Card
               key={plan.name}
               className={`
                 relative overflow-hidden transition-all duration-300 hover:shadow-xl animate-slide-up 
-                ${plan.popular ? 'border-primary shadow-lg' : 'border-border'}
+                ${plan.popular ? "border-primary shadow-lg" : "border-border"}
               `}
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
@@ -137,11 +153,13 @@ const PricingSection = () => {
                   </div>
                 </div>
               )}
-              
+
               <div className="p-6 md:p-8">
                 <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
-                
+                <p className="text-muted-foreground text-sm mb-6">
+                  {plan.description}
+                </p>
+
                 <div className="mb-2">
                   <div className="flex items-end">
                     <span className="text-4xl font-bold">
@@ -149,21 +167,23 @@ const PricingSection = () => {
                     </span>
                     {plan.price[billingCycle] !== "Custom" && (
                       <span className="text-muted-foreground ml-2 mb-1">
-                        /mo {billingCycle === 'yearly' && 'billed annually'}
+                        /mo {billingCycle === "yearly" && "billed annually"}
                       </span>
                     )}
                   </div>
                 </div>
-                
-                <p className="text-sm text-primary font-medium mb-6">{plan.messageVolume}</p>
-                
-                <Button 
-                  className={`w-full mb-8 ${plan.popular ? 'bg-primary' : ''}`}
-                  variant={plan.popular ? 'default' : 'outline'}
+
+                <p className="text-sm text-primary font-medium mb-6">
+                  {plan.messageVolume}
+                </p>
+
+                <Button
+                  className={`w-full mb-8 ${plan.popular ? "bg-primary" : ""}`}
+                  variant={plan.popular ? "default" : "outline"}
                 >
                   {plan.cta}
                 </Button>
-                
+
                 <div className="space-y-4">
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-3">
@@ -176,9 +196,11 @@ const PricingSection = () => {
             </Card>
           ))}
         </div>
-        
+
         <div className="mt-16 md:mt-20 text-center">
-          <p className="text-muted-foreground mb-4">Need a custom WhatsApp solution?</p>
+          <p className="text-muted-foreground mb-4">
+            Need a custom WhatsApp solution?
+          </p>
           <Button variant="outline" size="lg">
             Contact our sales team
           </Button>
