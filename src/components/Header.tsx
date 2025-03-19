@@ -20,13 +20,16 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-4 bg-white/80 backdrop-blur-lg shadow-sm' 
+          ? 'py-4 bg-white/90 backdrop-blur-lg shadow-sm' 
           : 'py-6 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
         <a href="/" className="flex flex-col items-start">
-          <span className="text-2xl font-bold text-primary">SEWA</span>
+          <div className="flex items-center">
+            <span className="text-2xl font-bold text-primary">SEWA</span>
+            <span className="ml-2 text-sm text-muted-foreground">WhatsApp</span>
+          </div>
           <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
             powered by 
             <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Simpo.ai</a>

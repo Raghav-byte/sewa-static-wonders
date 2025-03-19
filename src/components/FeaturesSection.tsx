@@ -1,12 +1,15 @@
 
 import React from 'react';
 import { 
-  Layers, 
-  Zap, 
+  MessageSquare, 
+  Bot, 
   BarChart, 
   Users, 
-  Lock, 
-  Repeat
+  Shield, 
+  Repeat,
+  ShoppingCart,
+  Calendar,
+  FileText
 } from 'lucide-react';
 
 interface FeatureCardProps {
@@ -32,40 +35,58 @@ const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => (
 const FeaturesSection = () => {
   const features = [
     {
-      icon: <Layers size={24} />,
-      title: "Intuitive Workflows",
-      description: "Create and manage complex service workflows with our drag-and-drop interface. No coding required.",
+      icon: <MessageSquare size={24} />,
+      title: "WhatsApp API Integration",
+      description: "Connect to WhatsApp Business API quickly with zero technical knowledge required.",
       delay: 0.1
     },
     {
-      icon: <Zap size={24} />,
-      title: "Automation Engine",
-      description: "Automate repetitive tasks and processes to save time and reduce errors.",
+      icon: <Bot size={24} />,
+      title: "AI Chatbots",
+      description: "Build intelligent, automated responses that handle customer queries 24/7.",
       delay: 0.2
     },
     {
       icon: <BarChart size={24} />,
       title: "Advanced Analytics",
-      description: "Gain insights into service performance with detailed metrics and customizable dashboards.",
+      description: "Track message performance, response rates, and customer engagement metrics.",
       delay: 0.3
     },
     {
-      icon: <Users size={24} />,
-      title: "Team Collaboration",
-      description: "Seamlessly collaborate with team members through shared workspaces and real-time updates.",
+      icon: <ShoppingCart size={24} />,
+      title: "Conversational Commerce",
+      description: "Enable customers to browse products, make purchases, and track orders via WhatsApp.",
       delay: 0.4
     },
     {
-      icon: <Lock size={24} />,
-      title: "Enterprise Security",
-      description: "Bank-grade security with role-based access control and data encryption.",
+      icon: <Users size={24} />,
+      title: "Team Inbox",
+      description: "Collaborative team inbox to manage all WhatsApp conversations in one place.",
       delay: 0.5
     },
     {
-      icon: <Repeat size={24} />,
-      title: "API Integration",
-      description: "Connect with your existing tools through our extensive API and pre-built integrations.",
+      icon: <Calendar size={24} />,
+      title: "Appointment Scheduling",
+      description: "Let customers book appointments directly through WhatsApp conversations.",
       delay: 0.6
+    },
+    {
+      icon: <FileText size={24} />,
+      title: "Message Templates",
+      description: "Create and save reusable message templates approved by WhatsApp.",
+      delay: 0.7
+    },
+    {
+      icon: <Shield size={24} />,
+      title: "Enterprise Security",
+      description: "End-to-end encryption with role-based access control and data protection.",
+      delay: 0.8
+    },
+    {
+      icon: <Repeat size={24} />,
+      title: "Seamless Integration",
+      description: "Connect with your CRM, e-commerce platforms, and other business tools.",
+      delay: 0.9
     }
   ];
 
@@ -80,10 +101,10 @@ const FeaturesSection = () => {
             Powerful Capabilities
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">
-            Everything you need to deliver exceptional service
+            Everything you need for WhatsApp Business
           </h2>
           <p className="text-lg text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            SEWA combines powerful features in an elegant, easy-to-use platform. Designed to help your business deliver better service experiences.
+            SEWA combines powerful features in an elegant, easy-to-use platform. Designed to help your business leverage WhatsApp for growth.
           </p>
         </div>
         

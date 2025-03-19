@@ -11,6 +11,7 @@ interface PricingTier {
     monthly: string;
     yearly: string;
   };
+  messageVolume: string;
   features: string[];
   cta: string;
   popular?: boolean;
@@ -19,55 +20,61 @@ interface PricingTier {
 const pricingPlans: PricingTier[] = [
   {
     name: "Starter",
-    description: "Perfect for small teams just getting started with service management.",
+    description: "Perfect for small businesses just getting started with WhatsApp.",
     price: {
       monthly: "$29",
       yearly: "$24",
     },
+    messageVolume: "Up to 1,000 messages/month",
     features: [
-      "Up to 3 team members",
-      "10 active workflows",
-      "Basic automation",
+      "WhatsApp Business API access",
+      "1 shared team inbox",
+      "Basic chatbot automation",
       "Email support",
-      "1,000 monthly actions"
+      "Message templates (5)",
+      "Basic analytics"
     ],
     cta: "Start Free Trial"
   },
   {
-    name: "Professional",
-    description: "Ideal for growing teams with more complex service needs.",
+    name: "Growth",
+    description: "Ideal for growing businesses with increased messaging needs.",
     price: {
       monthly: "$79",
       yearly: "$69",
     },
+    messageVolume: "Up to 10,000 messages/month",
     features: [
-      "Up to 10 team members",
-      "Unlimited workflows",
-      "Advanced automation",
+      "Everything in Starter, plus:",
+      "Up to 5 team members",
+      "Advanced chatbot automation",
       "Priority support",
-      "10,000 monthly actions",
-      "API access",
-      "Custom integrations"
+      "Message templates (15)",
+      "Advanced analytics",
+      "CRM integration",
+      "Appointment scheduling"
     ],
     cta: "Start Free Trial",
     popular: true
   },
   {
     name: "Enterprise",
-    description: "For organizations with advanced service management requirements.",
+    description: "For organizations with high-volume messaging requirements.",
     price: {
       monthly: "Custom",
       yearly: "Custom",
     },
+    messageVolume: "Unlimited messages",
     features: [
+      "Everything in Growth, plus:",
       "Unlimited team members",
-      "Unlimited workflows",
       "Enterprise-grade security",
       "Dedicated account manager",
-      "Unlimited actions",
-      "Custom deployment options",
+      "Custom message templates",
+      "Custom integrations",
       "SLA guarantees",
-      "24/7 priority support"
+      "24/7 priority support",
+      "Advanced AI capabilities"
     ],
     cta: "Contact Sales"
   }
@@ -84,10 +91,10 @@ const PricingSection = () => {
             Flexible Pricing
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">
-            Plans that grow with your business
+            WhatsApp solutions for every business
           </h2>
           <p className="text-lg text-muted-foreground mb-10 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Choose the plan that best fits your needs. All plans come with a 14-day free trial.
+            Choose the plan that best fits your messaging needs. All plans come with a 14-day free trial.
           </p>
           
           <div className="inline-flex items-center p-1 bg-secondary rounded-full mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -136,7 +143,7 @@ const PricingSection = () => {
                 <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
                 
-                <div className="mb-6">
+                <div className="mb-2">
                   <div className="flex items-end">
                     <span className="text-4xl font-bold">
                       {plan.price[billingCycle]}
@@ -148,6 +155,8 @@ const PricingSection = () => {
                     )}
                   </div>
                 </div>
+                
+                <p className="text-sm text-primary font-medium mb-6">{plan.messageVolume}</p>
                 
                 <Button 
                   className={`w-full mb-8 ${plan.popular ? 'bg-primary' : ''}`}
@@ -170,7 +179,7 @@ const PricingSection = () => {
         </div>
         
         <div className="mt-16 md:mt-20 text-center">
-          <p className="text-muted-foreground mb-4">Need a custom solution?</p>
+          <p className="text-muted-foreground mb-4">Need a custom WhatsApp solution?</p>
           <Button variant="outline" size="lg">
             Contact our sales team
           </Button>

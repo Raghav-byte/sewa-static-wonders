@@ -1,37 +1,40 @@
 
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Smartphone, MessageSquare, BarChart3 } from 'lucide-react';
 
 const steps = [
   {
     number: "01",
-    title: "Define your service workflow",
-    description: "Map out your service processes step by step. Create triggers, actions and decision points.",
+    title: "Connect your WhatsApp Business account",
+    description: "Get approved for WhatsApp Business API through our simple onboarding process.",
     points: [
-      "Drag-and-drop workflow builder",
-      "Pre-built templates for common service scenarios",
-      "Visual process mapping"
-    ]
+      "Quick approval process",
+      "No technical expertise required",
+      "Guided setup by our team"
+    ],
+    icon: <Smartphone className="w-12 h-12 text-primary" />
   },
   {
     number: "02",
-    title: "Configure automations",
-    description: "Set up automated actions that trigger based on specific conditions and events.",
+    title: "Build automated workflows",
+    description: "Create message templates and automated responses for different customer scenarios.",
     points: [
-      "No-code automation setup",
-      "Conditional logic capabilities",
-      "Scheduled and event-based triggers"
-    ]
+      "Drag-and-drop message builder",
+      "Pre-approved message templates",
+      "AI-powered response suggestions"
+    ],
+    icon: <MessageSquare className="w-12 h-12 text-primary" />
   },
   {
     number: "03",
-    title: "Deploy and optimize",
-    description: "Launch your workflows and continuously improve them with analytics and feedback.",
+    title: "Engage and analyze",
+    description: "Start conversations with customers and track performance with detailed analytics.",
     points: [
-      "One-click deployment",
-      "Performance monitoring",
-      "A/B testing capabilities"
-    ]
+      "Real-time conversation dashboard",
+      "Customer engagement metrics",
+      "Conversion tracking"
+    ],
+    icon: <BarChart3 className="w-12 h-12 text-primary" />
   }
 ];
 
@@ -44,7 +47,7 @@ const HowItWorksSection = () => {
             Simple Process
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">
-            How SEWA works
+            How SEWA WhatsApp works
           </h2>
           <p className="text-lg text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
             Get started in minutes with our intuitive platform designed for simplicity and power.
@@ -66,11 +69,14 @@ const HowItWorksSection = () => {
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-bold absolute -top-6 -left-6 z-10">
                       {step.number}
                     </div>
-                    <div className="aspect-[4/3] w-full max-w-md rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100">
-                      {/* This would be an image in a real implementation */}
-                      <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-8">
-                        <div className="text-center text-gray-400">
-                          <div className="text-sm">Step {step.number} Illustration</div>
+                    <div className="aspect-[4/3] w-full max-w-md rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 p-8">
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-6">
+                        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                          {step.icon}
+                        </div>
+                        <div className="text-center">
+                          <h4 className="text-lg font-medium mb-2">{step.title}</h4>
+                          <p className="text-sm text-muted-foreground">{step.description}</p>
                         </div>
                       </div>
                     </div>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Github, MessageSquare } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,13 +9,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div>
             <div className="flex flex-col items-start gap-1 mb-6">
-              <span className="text-2xl font-bold text-primary">SEWA</span>
+              <div className="flex items-center">
+                <span className="text-2xl font-bold text-primary">SEWA</span>
+                <span className="ml-2 text-sm text-muted-foreground">WhatsApp</span>
+              </div>
               <span className="text-xs text-muted-foreground">powered by 
                 <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Simpo.ai</a>
               </span>
             </div>
             <p className="text-muted-foreground mb-6">
-              Simplifying service workflows for businesses worldwide. Deliver exceptional customer experiences with SEWA.
+              Connect with your customers where they already are. SEWA helps businesses leverage WhatsApp for sales, support, and engagement.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -47,7 +50,7 @@ const Footer = () => {
               <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Integrations</a></li>
               <li><a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Changelog</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">WhatsApp API</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Roadmap</a></li>
             </ul>
           </div>
@@ -56,8 +59,8 @@ const Footer = () => {
             <h3 className="font-semibold mb-6">Resources</h3>
             <ul className="space-y-4">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Community</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">API Reference</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Message Templates</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Help Center</a></li>
             </ul>
@@ -82,7 +85,7 @@ const Footer = () => {
           <div className="flex flex-wrap gap-4 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Cookie Policy</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">WhatsApp Policy</a>
           </div>
         </div>
       </div>

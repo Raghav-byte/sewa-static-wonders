@@ -14,23 +14,23 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    content: "SEWA has completely transformed how we manage our customer service operations. The automation features alone save us 20+ hours every week.",
+    content: "SEWA transformed our customer service through WhatsApp. We've seen a 40% increase in response rates and 25% faster resolution times.",
     author: "Sarah Johnson",
-    title: "Head of Customer Success",
-    company: "TechVision Inc."
+    title: "Head of Customer Experience",
+    company: "TechRetail Inc."
   },
   {
     id: 2,
-    content: "The intuitive interface made it easy for our team to adopt. We saw an immediate 40% reduction in response times after implementing SEWA.",
+    content: "The WhatsApp automation features have been a game-changer. Our sales team can now handle 3x more conversations with the same headcount.",
     author: "Michael Chen",
-    title: "Operations Director",
+    title: "Sales Director",
     company: "Global Services Ltd."
   },
   {
     id: 3,
-    content: "I was skeptical at first, but SEWA has exceeded all our expectations. Our client satisfaction scores have increased by 35% in just three months.",
+    content: "Implementing SEWA's WhatsApp solution was surprisingly easy. We were up and running in days, not weeks, and our customer satisfaction scores have improved significantly.",
     author: "Emma Rodriguez",
-    title: "Customer Experience Manager",
+    title: "Digital Transformation Lead",
     company: "Innovate Solutions"
   }
 ];
@@ -72,10 +72,10 @@ const TestimonialsSection = () => {
             Customer Stories
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">
-            Loved by service teams globally
+            Trusted by businesses worldwide
           </h2>
           <p className="text-lg text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Discover how SEWA is helping businesses transform their service delivery and delight customers.
+            See how businesses are using SEWA to transform their WhatsApp engagement strategy and drive results.
           </p>
         </div>
         
