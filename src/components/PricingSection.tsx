@@ -97,28 +97,27 @@ const PricingSection = () => {
             Choose the plan that best fits your messaging needs. All plans come with a 14-day free trial.
           </p>
           
-          <div className="inline-flex items-center p-1 bg-secondary rounded-full mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <button
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                billingCycle === 'monthly' 
-                  ? 'bg-white shadow-sm text-foreground' 
-                  : 'text-muted-foreground'
-              }`}
-              onClick={() => setBillingCycle('monthly')}
-            >
-              Monthly
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                billingCycle === 'yearly' 
-                  ? 'bg-white shadow-sm text-foreground' 
-                  : 'text-muted-foreground'
-              }`}
-              onClick={() => setBillingCycle('yearly')}
-            >
-              Yearly <span className="text-xs font-normal text-primary">Save 15%</span>
-            </button>
-          </div>
+          <div className="inline-flex items-center p-1 bg-secondary rounded-full mb-12 animate-slide-up dark:bg-gray-700" style={{ animationDelay: '0.2s' }}>
+  <button
+    className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
+      ${billingCycle === 'monthly' 
+        ? 'bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white' 
+        : 'text-muted-foreground'}`}
+    onClick={() => setBillingCycle('monthly')}
+  >
+    Monthly
+  </button>
+  <button
+    className={`px-4 py-2 rounded-full text-sm font-medium transition-all 
+      ${billingCycle === 'yearly' 
+        ? 'bg-white shadow-sm text-foreground dark:bg-gray-900 dark:text-white' 
+        : 'text-muted-foreground'}`}
+    onClick={() => setBillingCycle('yearly')}
+  >
+    Yearly <span className="text-xs font-normal text-primary">Save 15%</span>
+  </button>
+</div>
+
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
