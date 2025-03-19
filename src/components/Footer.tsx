@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex flex-col items-start gap-1 mb-6">
               <span className="text-2xl font-bold text-primary">SEWA</span>
               <span className="text-xs text-muted-foreground">powered by 
-                <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">simpo.ai</a>
+                <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Simpo.ai</a>
               </span>
             </div>
             <p className="text-muted-foreground mb-6">
