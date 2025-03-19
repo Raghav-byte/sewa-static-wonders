@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Github, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 py-16 md:py-20">
+    <footer className="bg-gray-50 dark:bg-gray-900 py-16 md:py-20">
       <div className="container mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div>
@@ -71,20 +72,20 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms</a></li>
+              <li><Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link></li>
               <li><a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Simpo.ai</a></li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+        <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             © {new Date().getFullYear()} SEWA, a <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Simpo.ai</a> company. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-4 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">WhatsApp Policy</a>
           </div>
         </div>

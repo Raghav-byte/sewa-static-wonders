@@ -11,7 +11,7 @@ const CallToAction = () => {
       <div className="hero-glow w-[400px] h-[400px] left-[10%] bottom-[10%]"></div>
       
       <div className="container mx-auto px-6 md:px-8">
-        <div className="relative glass-card bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-8 md:p-16 overflow-hidden">
+        <div className="relative glass-card bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-3xl p-8 md:p-16 overflow-hidden">
           {/* Background pattern */}
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           

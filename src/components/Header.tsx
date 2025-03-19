@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +21,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-4 bg-white/90 backdrop-blur-lg shadow-sm' 
+          ? 'py-4 bg-background/90 backdrop-blur-lg shadow-sm border-b border-border' 
           : 'py-6 bg-transparent'
       }`}
     >
@@ -53,6 +54,7 @@ const Header = () => {
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <Button variant="ghost" className="text-sm font-medium">
             Sign In
           </Button>
@@ -62,18 +64,21 @@ const Header = () => {
         </div>
         
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button 
+            className="text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background shadow-lg animate-fade-in border-b border-border">
           <nav className="flex flex-col py-4 px-6">
             <a 
               href="#features" 

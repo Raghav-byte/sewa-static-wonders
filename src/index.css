@@ -48,23 +48,40 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+    
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
+    
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
+    
     --primary: 142 70% 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    
     --secondary: 142 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+    
     --muted: 142 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
+    
     --accent: 142 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
+    
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
+    
     --border: 142 32.6% 17.5%;
     --input: 142 32.6% 17.5%;
     --ring: 142 76.3% 48%;
+
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 142 70% 50%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 142 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 142 32.6% 17.5%;
+    --sidebar-ring: 142 76.3% 48%;
   }
 }
 
@@ -86,7 +103,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-white/20 dark:border-gray-800/20 shadow-lg;
   }
   
   .btn-primary {
@@ -100,7 +117,7 @@
   }
 
   .hero-glow {
-    @apply absolute -z-10 blur-[100px] rounded-full opacity-40 bg-sewa-400;
+    @apply absolute -z-10 blur-[100px] rounded-full opacity-40 bg-sewa-400 dark:bg-sewa-600;
   }
 }
 
@@ -144,4 +161,29 @@ html {
 .bg-gradient-animate {
   background-size: 200% 200%;
   animation: gradient-move 8s ease infinite;
+}
+
+/* Dark mode transition */
+html.dark {
+  color-scheme: dark;
+}
+
+.prose {
+  @apply max-w-none dark:text-gray-300;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply dark:text-gray-100;
+}
+
+.prose strong {
+  @apply dark:text-gray-100;
+}
+
+.prose a {
+  @apply text-primary dark:text-primary hover:text-primary/80 dark:hover:text-primary/80;
+}
+
+.prose ul {
+  @apply dark:text-gray-300;
 }
