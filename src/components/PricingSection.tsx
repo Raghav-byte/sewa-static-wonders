@@ -84,7 +84,7 @@ const PricingSection = () => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-gradient-to-b from-sky-50 to-white">
+    <section id="how-it-works" className="py-20 md:py-32 bg-gradient-to-b from-white to-green-50 dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-6 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold rounded-full bg-primary/10 text-primary animate-fade-in">
