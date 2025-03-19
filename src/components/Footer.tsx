@@ -8,8 +8,11 @@ const Footer = () => {
       <div className="container mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div>
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex flex-col items-start gap-1 mb-6">
               <span className="text-2xl font-bold text-primary">SEWA</span>
+              <span className="text-xs text-muted-foreground">powered by 
+                <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">simpo.ai</a>
+              </span>
             </div>
             <p className="text-muted-foreground mb-6">
               Simplifying service workflows for businesses worldwide. Deliver exceptional customer experiences with SEWA.
@@ -67,13 +70,14 @@ const Footer = () => {
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms</a></li>
+              <li><a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Simpo.ai</a></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © {new Date().getFullYear()} SEWA. All rights reserved.
+            © {new Date().getFullYear()} SEWA, a <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Simpo.ai</a> company. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-4 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>

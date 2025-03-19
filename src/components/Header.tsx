@@ -25,8 +25,12 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
+        <a href="/" className="flex flex-col items-start">
           <span className="text-2xl font-bold text-primary">SEWA</span>
+          <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
+            powered by 
+            <a href="https://simpo.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">simpo.ai</a>
+          </span>
         </a>
         
         {/* Desktop menu */}
