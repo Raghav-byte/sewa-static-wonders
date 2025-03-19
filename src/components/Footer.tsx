@@ -19,7 +19,7 @@ const Footer = () => {
               <div className="flex items-center">
                 <span className="text-2xl font-bold text-primary">SEWA</span>
                 <span className="ml-2 text-sm text-muted-foreground">
-                  WhatsApp
+                  WhatsApp Provider
                 </span>
               </div>
               <span className="text-xs text-muted-foreground">
@@ -173,12 +173,12 @@ const Footer = () => {
             <h3 className="font-semibold mb-6">Company</h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
+              <Link
+                  to="/about"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
                 <a

@@ -28,7 +28,7 @@ const Header = () => {
         <a href="/" className="flex flex-col items-start">
           <div className="flex items-center">
             <span className="text-2xl font-bold text-primary">SEWA</span>
-            <span className="ml-2 text-sm text-muted-foreground">WhatsApp</span>
+            <span className="ml-2 text-sm text-muted-foreground">WhatsApp Provider</span>
           </div>
           <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
             powered by
