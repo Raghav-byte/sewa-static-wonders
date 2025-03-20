@@ -1,0 +1,68 @@
+
+/* Core animation optimizations */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Optimized animations that don't affect layout */
+.optimize-animation * {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Use hardware acceleration for smooth animations */
+.hardware-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  .animated-grid,
+  .circle-decoration,
+  .interactive-bubble,
+  .floating-element,
+  .pulse-element {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  * {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Optimize paint operations */
+.animated-grid {
+  opacity: 0.2;
+  will-change: background-position;
+}
+
+/* High contrast accessibility improvements */
+:root {
+  --focus-ring: 3px solid hsl(var(--primary));
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Improved contrast */
+.text-muted-foreground {
+  color: hsl(215.4 16.3% 36.9%);
+}
+
+.dark .text-muted-foreground {
+  color: hsl(215 20.2% 75.1%);
+}
