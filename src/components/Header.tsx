@@ -75,12 +75,12 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" className="text-sm font-medium">
+          <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank"><Button variant="ghost" className="text-sm font-medium">
             Sign In
-          </Button>
-          <Button variant="default" className="text-sm font-medium">
+          </Button></a>
+          <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank"><Button variant="default" className="text-sm font-medium">
             Get Started
-          </Button>
+          </Button></a>
         </div>
 
         {/* Mobile menu button */}
