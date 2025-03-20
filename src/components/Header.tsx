@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,16 +23,21 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-4 bg-background/90 backdrop-blur-lg shadow-sm border-b border-border"
-          : "py-6 bg-transparent"
+          ? "py-3 bg-background/95 backdrop-blur-lg shadow-sm border-b border-border"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
         <Link to="/" className="flex flex-col items-start">
-          <div className="flex items-center">
+          <motion.div 
+            className="flex items-center"
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
             <span className="text-2xl font-bold text-primary">SEWA</span>
             <span className="ml-2 text-sm text-muted-foreground">WhatsApp Provider</span>
-          </div>
+          </motion.div>
           <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
             powered by
             <a
@@ -47,40 +53,52 @@ const Header = () => {
 
         {/* Desktop menu */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link
-            to="/features"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Features
-          </Link>
-          <Link
-            to="/integrations"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Integrations
-          </Link>
-          <Link
-            to="/pricing"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Pricing
-          </Link>
-          <Link
-            to="/documentation"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Documentation
-          </Link>
+          {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 * i }}
+            >
+              <Link
+                to={`/${item.toLowerCase()}`}
+                className="text-sm font-medium hover:text-primary transition-colors relative
+                  after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[2px]
+                  after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform
+                  after:duration-300 after:origin-bottom-right hover:after:origin-bottom-left"
+              >
+                {item}
+              </Link>
+            </motion.div>
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
-          <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank"><Button variant="ghost" className="text-sm font-medium">
-            Sign In
-          </Button></a>
-          <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank"><Button variant="default" className="text-sm font-medium">
-            Get Started
-          </Button></a>
+          <motion.div
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
+              <Button variant="ghost" className="text-sm font-medium">
+                Sign In
+              </Button>
+            </a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
+              <Button variant="default" className="text-sm font-medium">
+                Get Started
+              </Button>
+            </a>
+          </motion.div>
         </div>
 
         {/* Mobile menu button */}
@@ -97,54 +115,54 @@ const Header = () => {
       </div>
 
       {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background shadow-lg animate-fade-in border-b border-border">
-          <nav className="flex flex-col py-4 px-6">
-            <Link
-              to="/features"
-              className="py-3 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Features
-            </Link>
-            <Link
-              to="/integrations"
-              className="py-3 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Integrations
-            </Link>
-            <Link
-              to="/pricing"
-              className="py-3 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link
-              to="/documentation"
-              className="py-3 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Documentation
-            </Link>
-            <div className="flex flex-col gap-2 mt-4 pt-4 border-t">
-              <Button
-                variant="ghost"
-                className="justify-center text-sm font-medium"
-              >
-                Sign In
-              </Button>
-              <Button
-                variant="default"
-                className="justify-center text-sm font-medium"
-              >
-                Get Started
-              </Button>
-            </div>
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg shadow-lg border-b border-border"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <nav className="flex flex-col py-4 px-6">
+              {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * i }}
+                >
+                  <Link
+                    to={`/${item.toLowerCase()}`}
+                    className="py-3 text-sm font-medium hover:text-primary transition-colors block"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                </motion.div>
+              ))}
+              <div className="flex flex-col gap-2 mt-4 pt-4 border-t">
+                <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
+                  <Button
+                    variant="ghost"
+                    className="justify-center text-sm font-medium w-full"
+                  >
+                    Sign In
+                  </Button>
+                </a>
+                <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
+                  <Button
+                    variant="default"
+                    className="justify-center text-sm font-medium w-full"
+                  >
+                    Get Started
+                  </Button>
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
