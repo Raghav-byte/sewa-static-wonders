@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Facebook,
@@ -81,44 +82,44 @@ const Footer = () => {
             <h3 className="font-semibold mb-6">Product</h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#features"
+                <Link
+                  to="/features"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/integrations"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Integrations
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#pricing"
+                <Link
+                  to="/pricing"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/api-reference"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   WhatsApp API
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/roadmap"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Roadmap
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -127,44 +128,44 @@ const Footer = () => {
             <h3 className="font-semibold mb-6">Resources</h3>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/documentation"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Documentation
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/api-reference"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   API Reference
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/message-templates"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Message Templates
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/case-studies"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Case Studies
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/help-center"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Help Center
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -173,7 +174,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-6">Company</h3>
             <ul className="space-y-4">
               <li>
-              <Link
+                <Link
                   to="/about"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
@@ -181,12 +182,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
@@ -202,6 +203,14 @@ const Footer = () => {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/whatsapp-policy"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  WhatsApp Policy
                 </Link>
               </li>
               <li>
@@ -244,12 +253,12 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
-            <a
-              href="#"
+            <Link
+              to="/whatsapp-policy"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               WhatsApp Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +27,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
-        <a href="/" className="flex flex-col items-start">
+        <Link to="/" className="flex flex-col items-start">
           <div className="flex items-center">
             <span className="text-2xl font-bold text-primary">SEWA</span>
             <span className="ml-2 text-sm text-muted-foreground">WhatsApp Provider</span>
@@ -41,34 +43,34 @@ const Header = () => {
               Simpo.ai
             </a>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop menu */}
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="#features"
+          <Link
+            to="/features"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
             Features
-          </a>
-          <a
-            href="#how-it-works"
+          </Link>
+          <Link
+            to="/integrations"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
-            How It Works
-          </a>
-          <a
-            href="#testimonials"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Testimonials
-          </a>
-          <a
-            href="#pricing"
+            Integrations
+          </Link>
+          <Link
+            to="/pricing"
             className="text-sm font-medium hover:text-primary transition-colors"
           >
             Pricing
-          </a>
+          </Link>
+          <Link
+            to="/documentation"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Documentation
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -98,34 +100,34 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background shadow-lg animate-fade-in border-b border-border">
           <nav className="flex flex-col py-4 px-6">
-            <a
-              href="#features"
+            <Link
+              to="/features"
               className="py-3 text-sm font-medium hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Features
-            </a>
-            <a
-              href="#how-it-works"
+            </Link>
+            <Link
+              to="/integrations"
               className="py-3 text-sm font-medium hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              How It Works
-            </a>
-            <a
-              href="#testimonials"
-              className="py-3 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Testimonials
-            </a>
-            <a
-              href="#pricing"
+              Integrations
+            </Link>
+            <Link
+              to="/pricing"
               className="py-3 text-sm font-medium hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Pricing
-            </a>
+            </Link>
+            <Link
+              to="/documentation"
+              className="py-3 text-sm font-medium hover:text-primary transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Documentation
+            </Link>
             <div className="flex flex-col gap-2 mt-4 pt-4 border-t">
               <Button
                 variant="ghost"
