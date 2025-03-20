@@ -5,7 +5,7 @@ import NotFound from "@/pages/NotFound";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import { Toaster } from "@/components/ui/toaster";
-import AboutUs from "@/pages/about";
+import AboutUs from "@/pages/About";
 import Features from "@/pages/Features";
 import Integrations from "@/pages/Integrations";
 import Documentation from "@/pages/Documentation";
