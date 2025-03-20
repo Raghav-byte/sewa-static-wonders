@@ -1,8 +1,8 @@
 
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import AnimatedPage from "@/components/AnimatedPage";
 import {
   MessageSquare,
   Bot,
@@ -18,14 +18,8 @@ import {
   Bell,
   ArrowRight
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 const Features = () => {
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const features = [
     {
       icon: <MessageSquare className="h-10 w-10 text-primary" />,
@@ -122,99 +116,111 @@ const Features = () => {
   };
 
   return (
-    <motion.div 
-      className="flex flex-col min-h-screen"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <AnimatedPage
+      title="Powerful WhatsApp Business Features"
+      description="Transform your business communication with our comprehensive suite of WhatsApp tools designed to engage, convert, and delight your customers."
     >
-      <Header />
-      <main className="flex-grow pt-24 pb-16 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-primary/5 to-transparent rounded-full blur-3xl -z-10 opacity-60"></div>
-        <div className="absolute bottom-40 left-0 w-[400px] h-[400px] bg-gradient-to-t from-primary/5 to-transparent rounded-full blur-3xl -z-10 opacity-60"></div>
-        <div className="absolute top-0 left-0 w-full h-64 bg-grid-pattern opacity-5 -z-10"></div>
-
-        <div className="container mx-auto px-6 md:px-8">
+      <motion.div className="flex flex-wrap justify-center gap-4 mb-12" variants={itemVariants}>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <Button size="lg" className="group">
+            Start Free Trial
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <Button size="lg" variant="outline">Book a Demo</Button>
+        </motion.div>
+      </motion.div>
+      
+      {/* Animated feature illustration */}
+      <motion.div
+        className="w-full max-w-4xl mx-auto mb-16 relative h-64 overflow-hidden rounded-xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="absolute inset-0 moving-gradient opacity-20 rounded-xl"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
           <motion.div 
-            className="max-w-4xl mx-auto mb-16 text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            className="flex items-center gap-4"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-sewa-500"
-              variants={itemVariants}
+            <motion.div 
+              className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
             >
-              Powerful WhatsApp Business Features
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-muted-foreground mb-8"
-              variants={itemVariants}
-            >
-              Transform your business communication with our comprehensive suite of WhatsApp tools designed to engage, convert, and delight your customers.
-            </motion.p>
-            <motion.div className="flex flex-wrap justify-center gap-4" variants={itemVariants}>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button size="lg" className="group">
-                  Start Free Trial
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button size="lg" variant="outline">Book a Demo</Button>
-              </motion.div>
+              <MessageSquare className="h-8 w-8 text-primary" />
             </motion.div>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            {features.map((feature, index) => (
-              <motion.div 
-                key={index} 
-                className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/20 card-hover bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm"
-                variants={itemVariants}
-              >
-                <motion.div 
-                  className="mb-4 text-primary"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  {feature.icon}
-                </motion.div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div 
-            className="mt-20 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold mb-6">Ready to transform your WhatsApp communication?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using SEWA to engage with their customers on WhatsApp.
-            </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button size="lg" className="group">
-                Get Started Today
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+            <motion.div
+              animate={{ 
+                x: [0, 200],
+                opacity: [0, 1, 0],
+                scale: [0.8, 1, 0.8]
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="h-3 w-3 rounded-full bg-primary"
+            />
+            <motion.div 
+              className="w-16 h-16 rounded-full glass-card flex items-center justify-center"
+              animate={{ x: [40, 0, 40] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Users className="h-8 w-8 text-primary" />
             </motion.div>
           </motion.div>
         </div>
-      </main>
-      <Footer />
-    </motion.div>
+      </motion.div>
+
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        {features.map((feature, index) => (
+          <motion.div 
+            key={index} 
+            className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/20 card-3d bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="mb-4 text-primary"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {feature.icon}
+            </motion.div>
+            <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+            <p className="text-muted-foreground">{feature.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div 
+        className="mt-20 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-sewa-500">Ready to transform your WhatsApp communication?</h2>
+        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          Join thousands of businesses already using SEWA to engage with their customers on WhatsApp.
+        </p>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <Button size="lg" className="group">
+            Get Started Today
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
+      </motion.div>
+    </AnimatedPage>
   );
 };
 
