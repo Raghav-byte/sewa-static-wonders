@@ -1,5 +1,6 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -18,29 +19,40 @@ import WhatsAppPolicy from "@/pages/WhatsAppPolicy";
 import Pricing from "@/pages/Pricing";
 import Roadmap from "@/pages/Roadmap";
 
+// AnimatePresence wrapper component
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Index />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/integrations" element={<Integrations />} />
+        <Route path="/documentation" element={<Documentation />} />
+        <Route path="/api-reference" element={<ApiReference />} />
+        <Route path="/message-templates" element={<MessageTemplates />} />
+        <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/help-center" element={<HelpCenter />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/whatsapp-policy" element={<WhatsAppPolicy />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 function App() {
   return (
     <>
       <Toaster />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/integrations" element={<Integrations />} />
-          <Route path="/documentation" element={<Documentation />} />
-          <Route path="/api-reference" element={<ApiReference />} />
-          <Route path="/message-templates" element={<MessageTemplates />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/help-center" element={<HelpCenter />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/whatsapp-policy" element={<WhatsAppPolicy />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/roadmap" element={<Roadmap />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </>
   );

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,6 +19,21 @@ const AnimatedPage: React.FC<AnimatedPageProps> = ({
 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  // State for mouse position
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Update mouse position
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const pageVariants = {
@@ -56,11 +71,11 @@ const AnimatedPage: React.FC<AnimatedPageProps> = ({
     }
   };
 
-  // Decorative elements for background
+  // Decorative elements for background with cursor interactivity
   const decorativeElements = [
-    { top: '15%', left: '5%', size: 300, delay: 0, duration: 8 },
-    { top: '25%', right: '10%', size: 200, delay: 1, duration: 10 },
-    { top: '70%', left: '8%', size: 250, delay: 0.5, duration: 12 },
+    { baseTop: '15%', baseLeft: '5%', size: 300, delay: 0, duration: 8, influence: 0.03 },
+    { baseTop: '25%', baseRight: '10%', size: 200, delay: 1, duration: 10, influence: 0.02 },
+    { baseTop: '70%', baseLeft: '8%', size: 250, delay: 0.5, duration: 12, influence: 0.04 },
   ];
 
   return (
@@ -74,43 +89,54 @@ const AnimatedPage: React.FC<AnimatedPageProps> = ({
       {/* Animated background grid */}
       <div className="fixed inset-0 animated-grid opacity-30 -z-10 dark:opacity-10"></div>
       
-      {/* Decorative animated elements */}
-      {decorativeElements.map((el, index) => (
-        <motion.div
-          key={index}
-          className="absolute rounded-full circle-decoration -z-10"
-          style={{
-            top: el.top,
-            left: el.left,
-            right: el.right,
-            width: el.size,
-            height: el.size,
-          }}
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: el.duration,
-            repeat: Infinity,
-            delay: el.delay,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
+      {/* Decorative animated elements with cursor interactivity */}
+      {decorativeElements.map((el, index) => {
+        // Calculate cursor influence
+        const offsetX = mousePosition.x * el.influence;
+        const offsetY = mousePosition.y * el.influence;
+        
+        return (
+          <motion.div
+            key={index}
+            className="absolute rounded-full interactive-bubble -z-10"
+            style={{
+              top: el.baseTop,
+              left: el.baseLeft,
+              right: el.baseRight,
+              width: el.size,
+              height: el.size,
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+              x: offsetX,
+              y: offsetY,
+            }}
+            transition={{
+              duration: el.duration,
+              repeat: Infinity,
+              delay: el.delay,
+              ease: "easeInOut",
+              x: { duration: 0.2 },
+              y: { duration: 0.2 },
+            }}
+          />
+        );
+      })}
       
-      {/* 3D floating elements */}
+      {/* 3D floating elements that follow cursor */}
       <motion.div 
-        className="absolute top-1/3 right-0 w-24 h-24 rounded-full bg-primary/10 blur-xl -z-10"
+        className="absolute top-1/3 right-0 w-24 h-24 rounded-full bg-primary/10 blur-xl -z-10 interactive-bubble"
         animate={{ 
           y: [0, -20, 0],
-          x: [0, -10, 0],
+          x: mousePosition.x * -0.01,
           opacity: [0.3, 0.5, 0.3]
         }}
         transition={{ 
           duration: 8, 
           repeat: Infinity,
-          ease: "easeInOut" 
+          ease: "easeInOut",
+          x: { duration: 0.3 }
         }}
       />
       
