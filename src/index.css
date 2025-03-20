@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './performance.css';
 
 @layer base {
   :root {
@@ -14,14 +13,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 70% 25%;
+    --primary: 142 70% 29%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 142 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 142 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 36.9%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 142 95% 74%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -31,7 +30,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 70% 25%;
+    --ring: 142 70% 29%;
 
     --radius: 0.75rem;
 
@@ -62,7 +61,7 @@
     --secondary-foreground: 210 40% 98%;
 
     --muted: 142 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 75.1%;
+    --muted-foreground: 215 20.2% 65.1%;
 
     --accent: 142 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -104,30 +103,6 @@
   h6 {
     @apply tracking-tight;
   }
-  
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
-  }
-  
-  h2 {
-    @apply text-3xl md:text-4xl font-bold;
-  }
-  
-  h3 {
-    @apply text-2xl md:text-3xl font-semibold;
-  }
-  
-  h4 {
-    @apply text-xl md:text-2xl font-semibold;
-  }
-  
-  h5 {
-    @apply text-lg md:text-xl font-medium;
-  }
-  
-  h6 {
-    @apply text-base md:text-lg font-medium;
-  }
 }
 
 @layer components {
@@ -137,14 +112,12 @@
 
   .btn-primary {
     @apply px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-all 
-    hover:brightness-110 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/50
-    min-h-11 min-w-24;
+    hover:brightness-110 hover:shadow-md active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/50;
   }
 
   .btn-secondary {
     @apply px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium transition-all 
-    hover:bg-secondary/80 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-secondary/50
-    min-h-11 min-w-24;
+    hover:bg-secondary/80 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-secondary/50;
   }
 
   .hero-glow {
@@ -159,11 +132,9 @@
   }
 }
 
-/* Smooth scrolling - only for non-reduced motion preferences */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Modern scrollbar styling */
@@ -185,38 +156,50 @@
   background: hsl(var(--primary) / 0.4);
 }
 
-/* Optimized animations - reducing complexity */
+/* Custom animations */
 @keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .bg-gradient-animate {
   background-size: 200% 200%;
   animation: gradient-move 8s ease infinite;
-  will-change: background-position;
 }
 
-/* Simplified float animation */
+/* Float animation */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-/* Simplified pulse animation */
+/* Pulse animation */
 @keyframes pulse-glow {
-  0%, 100% { 
+  0%, 100% {
     opacity: 0.7;
     transform: scale(1);
   }
-  50% { 
-    opacity: 0.9;
-    transform: scale(1.03);
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
   }
 }
 
-/* Grid background pattern - optimized */
+/* Grid background pattern */
 .bg-grid-pattern {
   background-size: 20px 20px;
   background-image: 
@@ -427,21 +410,13 @@ html.dark {
   50% {
     background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Stylish circle decorations */
 .circle-decoration {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(22, 163, 74, 0.2) 0%, rgba(22, 163, 74, 0) 70%);
-}
-
-/* Touch target improvement */
-a, button, [role="button"] {
-  @apply min-h-10 min-w-10 p-2;
-}
-
-/* Add underlines to links for non-button links */
-a:not(.btn-primary):not(.btn-secondary):not([role="button"]):not(.no-underline) {
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }

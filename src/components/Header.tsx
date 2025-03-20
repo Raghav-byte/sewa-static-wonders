@@ -28,7 +28,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
-        <Link to="/" className="flex flex-col items-start" aria-label="Homepage">
+        <Link to="/" className="flex flex-col items-start">
           <motion.div 
             className="flex items-center"
             initial={{ opacity: 0, y: -5 }}
@@ -44,7 +44,7 @@ const Header = () => {
               href="https://simpo.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline ml-1 focus:ring-2 focus:ring-primary focus:outline-none focus:ring-offset-2"
+              className="text-primary hover:underline ml-1"
             >
               Simpo.ai
             </a>
@@ -52,7 +52,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop menu */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-8">
           {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
             <motion.div
               key={item}
@@ -65,8 +65,7 @@ const Header = () => {
                 className="text-sm font-medium hover:text-primary transition-colors relative
                   after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[2px]
                   after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform
-                  after:duration-300 after:origin-bottom-right hover:after:origin-bottom-left
-                  focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 p-2 rounded-md"
+                  after:duration-300 after:origin-bottom-right hover:after:origin-bottom-left"
               >
                 {item}
               </Link>
@@ -82,7 +81,7 @@ const Header = () => {
             transition={{ duration: 0.3, delay: 0.4 }}
           >
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="ghost" className="text-sm font-medium min-h-11 min-w-20" aria-label="Sign In">
+              <Button variant="ghost" className="text-sm font-medium">
                 Sign In
               </Button>
             </a>
@@ -95,7 +94,7 @@ const Header = () => {
             whileTap={{ scale: 0.98 }}
           >
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="default" className="text-sm font-medium min-h-11 min-w-24" aria-label="Get Started">
+              <Button variant="default" className="text-sm font-medium">
                 Get Started
               </Button>
             </a>
@@ -106,11 +105,9 @@ const Header = () => {
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
           <button
-            className="text-foreground p-2 min-h-10 min-w-10"
+            className="text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -121,13 +118,11 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            id="mobile-menu"
             className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg shadow-lg border-b border-border"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            aria-label="Mobile navigation"
           >
             <nav className="flex flex-col py-4 px-6">
               {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
@@ -139,8 +134,7 @@ const Header = () => {
                 >
                   <Link
                     to={`/${item.toLowerCase()}`}
-                    className="py-3 text-sm font-medium hover:text-primary transition-colors block
-                      focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 p-2 rounded-md"
+                    className="py-3 text-sm font-medium hover:text-primary transition-colors block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item}
@@ -151,8 +145,7 @@ const Header = () => {
                 <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
                   <Button
                     variant="ghost"
-                    className="justify-center text-sm font-medium w-full min-h-11"
-                    aria-label="Sign In"
+                    className="justify-center text-sm font-medium w-full"
                   >
                     Sign In
                   </Button>
@@ -160,8 +153,7 @@ const Header = () => {
                 <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
                   <Button
                     variant="default"
-                    className="justify-center text-sm font-medium w-full min-h-11"
-                    aria-label="Get Started"
+                    className="justify-center text-sm font-medium w-full"
                   >
                     Get Started
                   </Button>
