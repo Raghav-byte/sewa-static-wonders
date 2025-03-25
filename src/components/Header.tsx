@@ -28,6 +28,29 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
+        <Link to="/" className="flex flex-col items-start">
+          <motion.div
+            className="flex items-center"
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="text-2xl font-bold text-primary">SEWA</span>
+            <span className="ml-2 text-sm text-muted-foreground">WhatsApp Provider</span>
+          </motion.div>
+          <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
+            powered by
+            <a
+              href="https://simpo.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline ml-1"
+            >
+              Simpo.ai
+            </a>
+          </span>
+        </Link>
+
         {/* Desktop menu */}
         <nav className="hidden md:flex items-center gap-8">
           {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
@@ -59,7 +82,7 @@ const Header = () => {
           >
 
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="ghost" className="text-sm font-medium" aria-label="Sign In">
+              <Button variant="ghost" className="text-sm font-medium">
                 Sign In
               </Button>
             </a>
@@ -72,7 +95,7 @@ const Header = () => {
             whileTap={{ scale: 0.98 }}
           >
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="default" className="text-sm font-medium" aria-label="Get Started">
+              <Button variant="default" className="text-sm font-medium">
                 Get Started
               </Button>
             </a>
@@ -95,7 +118,7 @@ const Header = () => {
       {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg shadow-lg border-b border-border"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -124,7 +147,6 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     className="justify-center text-sm font-medium w-full"
-                    aria-label="Sign In"
                   >
                     Sign In
                   </Button>
@@ -133,7 +155,6 @@ const Header = () => {
                   <Button
                     variant="default"
                     className="justify-center text-sm font-medium w-full"
-                    aria-label="Get Started"
                   >
                     Get Started
                   </Button>
