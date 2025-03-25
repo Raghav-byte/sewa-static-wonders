@@ -28,29 +28,6 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
-        <Link to="/" className="flex flex-col items-start">
-          <motion.div 
-            className="flex items-center"
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <span className="text-2xl font-bold text-primary">SEWA</span>
-            <span className="ml-2 text-sm text-muted-foreground">WhatsApp Provider</span>
-          </motion.div>
-          <span className="text-[10px] text-muted-foreground leading-tight -mt-1">
-            powered by
-            <a
-              href="https://simpo.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline ml-1"
-            >
-              Simpo.ai
-            </a>
-          </span>
-        </Link>
-
         {/* Desktop menu */}
         <nav className="hidden md:flex items-center gap-8">
           {["Features", "Integrations", "Pricing", "Documentation"].map((item, i) => (
@@ -81,7 +58,7 @@ const Header = () => {
             transition={{ duration: 0.3, delay: 0.4 }}
           >
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="ghost" className="text-sm font-medium">
+              <Button variant="ghost" className="text-sm font-medium" aria-label="Sign In">
                 Sign In
               </Button>
             </a>
@@ -94,7 +71,7 @@ const Header = () => {
             whileTap={{ scale: 0.98 }}
           >
             <a href="https://simpo-whatssapp.web.app/admin/whatsapp/dashboard" target="_blank">
-              <Button variant="default" className="text-sm font-medium">
+              <Button variant="default" className="text-sm font-medium" aria-label="Get Started">
                 Get Started
               </Button>
             </a>
@@ -146,6 +123,7 @@ const Header = () => {
                   <Button
                     variant="ghost"
                     className="justify-center text-sm font-medium w-full"
+                    aria-label="Sign In"
                   >
                     Sign In
                   </Button>
@@ -154,6 +132,7 @@ const Header = () => {
                   <Button
                     variant="default"
                     className="justify-center text-sm font-medium w-full"
+                    aria-label="Get Started"
                   >
                     Get Started
                   </Button>
