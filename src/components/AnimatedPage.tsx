@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Header from "@/components/Header";
@@ -61,8 +60,10 @@ const pageVariants = {
   },
 };
 
-interface AnimatedPageProps {
+export interface AnimatedPageProps {
   children: React.ReactNode;
+  title?: string;
+  description?: string;
 }
 
 const AnimatedBackground = () => {
@@ -77,11 +78,9 @@ const AnimatedBackground = () => {
       const { clientX, clientY } = e;
       const { left, top, width, height } = containerRef.current.getBoundingClientRect();
       
-      // Calculate mouse position as a percentage of the container
       const mouseX = (clientX - left) / width;
       const mouseY = (clientY - top) / height;
       
-      // Update custom properties based on mouse position
       containerRef.current.style.setProperty('--mouse-x', `${mouseX}`);
       containerRef.current.style.setProperty('--mouse-y', `${mouseY}`);
     };
@@ -121,7 +120,7 @@ const AnimatedBackground = () => {
   );
 };
 
-const AnimatedPage = ({ children }: AnimatedPageProps) => {
+const AnimatedPage = ({ children, title, description }: AnimatedPageProps) => {
   return (
     <motion.div
       initial="initial"
