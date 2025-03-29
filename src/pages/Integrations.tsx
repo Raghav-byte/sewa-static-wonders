@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -47,6 +46,24 @@ const Integrations = () => {
       logo: "https://s.w.org/style/images/about/WordPress-logotype-standard.png",
       description: "Add WhatsApp chat buttons to your WordPress site and collect leads directly into your WhatsApp business account.",
       category: "CMS"
+    },
+    {
+      name: "Magento",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Magento_logo.svg",
+      description: "Enhance your Magento store with WhatsApp order notifications and customer support.",
+      category: "E-commerce"
+    },
+    {
+      name: "Zendesk",
+      logo: "https://d1eipm3vz40hy0.cloudfront.net/images/social/zendesk-logo.jpg",
+      description: "Integrate WhatsApp conversations into your Zendesk support workflow for unified customer service.",
+      category: "Support"
+    },
+    {
+      name: "Mailchimp",
+      logo: "https://mailchimp.com/release/plums/cxp/images/freddie.8d73e35bc202ce3e51e9.svg",
+      description: "Sync contacts between WhatsApp and Mailchimp for coordinated marketing campaigns across channels.",
+      category: "Marketing"
     },
     {
       name: "WooCommerce",
