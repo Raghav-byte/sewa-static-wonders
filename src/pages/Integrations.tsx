@@ -53,24 +53,24 @@ const Integrations = () => {
       description: "Enhance your Magento store with WhatsApp order notifications and customer support.",
       category: "E-commerce"
     },
-    {
-      name: "Zendesk",
-      logo: "https://d1eipm3vz40hy0.cloudfront.net/images/social/zendesk-logo.jpg",
-      description: "Integrate WhatsApp conversations into your Zendesk support workflow for unified customer service.",
-      category: "Support"
-    },
-    {
-      name: "Mailchimp",
-      logo: "https://mailchimp.com/release/plums/cxp/images/freddie.8d73e35bc202ce3e51e9.svg",
-      description: "Sync contacts between WhatsApp and Mailchimp for coordinated marketing campaigns across channels.",
-      category: "Marketing"
-    },
-    {
-      name: "WooCommerce",
-      logo: "https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg",
-      description: "Connect your WooCommerce store to send order confirmations, shipping updates, and abandoned cart recovery messages.",
-      category: "E-commerce"
-    },
+//     {
+//       name: "Zendesk",
+//       logo: "https://d1eipm3vz40hy0.cloudfront.net/images/social/zendesk-logo.jpg",
+//       description: "Integrate WhatsApp conversations into your Zendesk support workflow for unified customer service.",
+//       category: "Support"
+//     },
+//     {
+//       name: "Mailchimp",
+//       logo: "https://mailchimp.com/release/plums/cxp/images/freddie.8d73e35bc202ce3e51e9.svg",
+//       description: "Sync contacts between WhatsApp and Mailchimp for coordinated marketing campaigns across channels.",
+//       category: "Marketing"
+//     },
+//     {
+//       name: "WooCommerce",
+//       logo: "https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg",
+//       description: "Connect your WooCommerce store to send order confirmations, shipping updates, and abandoned cart recovery messages.",
+//       category: "E-commerce"
+//     },
     {
       name: "Stripe",
       logo: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
