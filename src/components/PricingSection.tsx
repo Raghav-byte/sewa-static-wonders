@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -22,8 +23,8 @@ const pricingPlans: PricingTier[] = [
     description:
       "Perfect for small businesses just getting started with WhatsApp.",
     price: {
-      monthly: "$29",
-      yearly: "$24",
+      monthly: "Free",
+      yearly: "Free",
     },
     messageVolume: "Up to 1,000 messages/month",
     features: [
@@ -40,8 +41,8 @@ const pricingPlans: PricingTier[] = [
     name: "Growth",
     description: "Ideal for growing businesses with increased messaging needs.",
     price: {
-      monthly: "$79",
-      yearly: "$69",
+      monthly: "₹1,000",
+      yearly: "₹834",
     },
     messageVolume: "Up to 10,000 messages/month",
     features: [
@@ -61,8 +62,8 @@ const pricingPlans: PricingTier[] = [
     name: "Enterprise",
     description: "For organizations with high-volume messaging requirements.",
     price: {
-      monthly: "Custom",
-      yearly: "Custom",
+      monthly: "Contact Us",
+      yearly: "Contact Us",
     },
     messageVolume: "Unlimited messages",
     features: [

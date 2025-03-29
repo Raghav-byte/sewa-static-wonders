@@ -19,8 +19,8 @@ const Pricing = () => {
     {
       name: "Starter",
       description: "For small businesses just getting started with WhatsApp",
-      priceMonthly: 29,
-      priceAnnual: 290,
+      priceMonthly: "Free",
+      priceAnnual: "Free",
       features: [
         "1,000 conversations per month",
         "1 WhatsApp Number",
@@ -44,8 +44,8 @@ const Pricing = () => {
     {
       name: "Business",
       description: "For growing businesses with active customer engagement",
-      priceMonthly: 99,
-      priceAnnual: 990,
+      priceMonthly: 1000,
+      priceAnnual: 10000,
       features: [
         "5,000 conversations per month",
         "2 WhatsApp Numbers",
@@ -71,8 +71,8 @@ const Pricing = () => {
     {
       name: "Enterprise",
       description: "For large organizations with complex WhatsApp needs",
-      priceMonthly: 299,
-      priceAnnual: 2990,
+      priceMonthly: "Contact Us",
+      priceAnnual: "Contact Us",
       features: [
         "Unlimited conversations",
         "Multiple WhatsApp Numbers",
@@ -255,13 +255,21 @@ const Pricing = () => {
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-muted-foreground mb-6">{plan.description}</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">
-                    ${isAnnual ? plan.priceAnnual / 12 : plan.priceMonthly}
-                  </span>
-                  <span className="text-muted-foreground">/month</span>
-                  {isAnnual && (
+                  {typeof plan.priceMonthly === 'string' ? (
+                    <span className="text-4xl font-bold">
+                      {plan.priceMonthly}
+                    </span>
+                  ) : (
+                    <span className="text-4xl font-bold">
+                      ₹{isAnnual ? plan.priceAnnual / 12 : plan.priceMonthly}
+                    </span>
+                  )}
+                  {typeof plan.priceMonthly !== 'string' && (
+                    <span className="text-muted-foreground">/month</span>
+                  )}
+                  {isAnnual && typeof plan.priceAnnual !== 'string' && (
                     <div className="text-sm text-muted-foreground mt-1">
-                      Billed annually (${plan.priceAnnual}/year)
+                      Billed annually (₹{plan.priceAnnual}/year)
                     </div>
                   )}
                 </div>

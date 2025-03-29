@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Clock, AlertCircle } from "lucide-react";
 
 const Integrations = () => {
   // Scroll to top on page load
@@ -84,8 +85,6 @@ const Integrations = () => {
       category: "Collaboration"
     }
   ];
-
-  const categories = ["All", "E-commerce", "CRM", "Marketing", "Support", "Automation", "Productivity", "CMS", "Payments", "Collaboration"];
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -99,17 +98,19 @@ const Integrations = () => {
             </p>
           </div>
 
-          <div className="mb-8 flex flex-wrap justify-center gap-3">
-            {categories.map((category, index) => (
-              <Button key={index} variant={index === 0 ? "default" : "outline"} className="mb-2">
-                {category}
-              </Button>
-            ))}
-          </div>
+          {/* Removed the categories section as requested */}
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrations.map((integration, index) => (
-              <div key={index} className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div key={index} className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 relative">
+                {/* Coming soon overlay */}
+                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-xl">
+                  <div className="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full p-3 mb-3">
+                    <Clock className="h-8 w-8" />
+                  </div>
+                  <p className="font-semibold text-xl text-green-600 dark:text-green-400">Coming Soon</p>
+                </div>
+                
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 mr-4">
                     <img src={integration.logo} alt={integration.name} className="h-full object-contain" />
