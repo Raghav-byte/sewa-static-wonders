@@ -261,7 +261,9 @@ const Pricing = () => {
                     </span>
                   ) : (
                     <span className="text-4xl font-bold">
-                      ₹{isAnnual ? plan.priceAnnual / 12 : plan.priceMonthly}
+                      ₹{isAnnual 
+                        ? Number((plan.priceAnnual / 12)).toFixed(2) 
+                        : plan.priceMonthly}
                     </span>
                   )}
                   {typeof plan.priceMonthly !== 'string' && (

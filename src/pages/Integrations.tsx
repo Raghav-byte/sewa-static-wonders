@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -98,17 +97,14 @@ const Integrations = () => {
             </p>
           </div>
 
-          {/* Removed the categories section as requested */}
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrations.map((integration, index) => (
               <div key={index} className="border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 relative">
-                {/* Coming soon overlay */}
-                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-xl">
-                  <div className="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full p-3 mb-3">
-                    <Clock className="h-8 w-8" />
+                <div className="absolute top-4 right-4">
+                  <div className="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full py-1 px-3 flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span className="text-sm font-medium">Coming Soon</span>
                   </div>
-                  <p className="font-semibold text-xl text-green-600 dark:text-green-400">Coming Soon</p>
                 </div>
                 
                 <div className="flex items-center mb-4">
